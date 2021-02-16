@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+   
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Lista 11 - Exercício 01</h1>
+            </header>
+        </div>
+        <div class="container p-3 my-3 border ">
+            <main>
+                <div class="form-group">
+                    <label class="clLabels"  for="idTemp" >Temperatura: </label>
+                    <input type="number" class="form-control" id="idTemp" name="nmTemp" step="0.01">
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Add Temp" onClick="addTemp()">
+
+                <br><br>
+                <div class="form-group">
+                    <label class="clLabels" for="idDia">Dia: </label>
+                    <input type="number" class="form-control" id="idDia" name="nmDia">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Testar Dia" onclick="testarDia()">
+
+                <br><br>
+                <output id="idOut" name="nmOut"></output>
+
+            </main> 
+        </div>
+        
+        <script>
+            var temperatura = []; 
+            var totalTemp = 0; 
+            function addTemp(){
+                temperatura.push(Number(document.getElementById("idTemp").value));
+                totalTemp = totalTemp + Number(document.getElementById("idTemp").value);
+                console.log(temperatura.toString());
+                Math.SQRT2
+            }
+
+
+            function testarDia(){
+                let media = totalTemp/temperatura.length; 
+                let dia = Number(document.getElementById("idDia").value);
+                let msn = ""; 
+                if (temperatura[dia - 1] > media) {
+                    msn = "A temperatura do dia "+ dia +" ("+ temperatura[dia - 1] +")  está acima da Média ("+ media +")";
+                }else if(temperatura[dia - 1] < media){
+                    msn = "A temperatura do dia "+ dia +" ("+ temperatura[dia - 1] +")  está abaixo da Média ("+ media +")";
+                }else{
+                    msn = "A temperatura do dia "+ dia +" ("+ temperatura[dia - 1] +")  está na Média ("+ media +")";
+                }
+                document.getElementById("idOut").value = msn; 
+            }
+
+        </script>
+
+    </body>
+</html>
